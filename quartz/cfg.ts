@@ -75,13 +75,7 @@ export interface GlobalConfiguration {
 export interface QuartzConfig {
   configuration: GlobalConfiguration
   plugins: PluginTypes
-}
-
-const beforeBodyImage: QuartzComponent = {
-  tag: "img",
-  src: "./beforeBody_img.png", // 이미지 파일 경로
-  alt: "Before Body Image", // 이미지 설명
-}
+};
 
 
 
@@ -89,38 +83,13 @@ const beforeBodyImage: QuartzComponent = {
 export interface FullPageLayout {
   head: QuartzComponent
   header: QuartzComponent[]
-  beforeBody: QuartzComponent[];
+  beforeBody: QuartzComponent[]
   pageBody: QuartzComponent
   afterBody: QuartzComponent[]
   left: QuartzComponent[]
   right: QuartzComponent[]
   footer: QuartzComponent
-}
-
-
-// FullPageLayout 객체 생성
-const fullPageLayout: FullPageLayout = {
-  head: {
-    tag: "title",
-    src: "",
-    alt: "My Web Page Title",
-  },
-  header: [],
-  beforeBody: [beforeBodyImage], // beforeBody에 이미지 추가
-  pageBody: {
-    tag: "div",
-    src: "",
-    alt: "Page Body Content",
-  },
-  afterBody: [],
-  left: [],
-  right: [],
-  footer: {
-    tag: "footer",
-    src: "",
-    alt: "Footer Content",
-  },
-}
+};
 
 
 export type PageLayout = Pick<FullPageLayout, "beforeBody" | "left" | "right">
