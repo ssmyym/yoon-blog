@@ -7,7 +7,6 @@
 
 ## 4. The Real-time DETR
  
-![[Pasted image 20241202104940.png]]
 
 ### 4.1. Model Overview
 ![[Pasted image 20241202111722.png]]
@@ -17,6 +16,22 @@
   - Efficient  hybrid-encoder는 intra-scale feature interaction과 cross-scale feature을 fusion을 통해 multi-scale feature들을 image sequence로 변환한다. (sec. 4.2 ) 
    - uncertainty-minimal query selection을 사용하여 encoder feature들 중 일정 수를 선택하여 decoder의 initial object query로 사용한다. (sec. 4.3)
    - 보조 예측 헤드가 있는 decoder가 object query를 반복적으로 optimize하여 최적화하여 object의 categori와 box를 생성한다. 
+
+
+### 4.2 Efficient Hybrid Encoder
+![[Pasted image 20241202104940.png]]
+- Computational bottleneck analysis
+	- sequence length가 길어지면 bottleneck이 발생하는 문제점이 생김
+
+	- 고수준 특징(high-level features)은 이미 저수준 특징(low-level features)으로부터 추출된 정보를 포함하고 있습니다.
+
+	- 따라서 여러 스케일의 특징들을 단순히 연결해서 처리하는 것은 계산적으로 중복된 작업입니다.
+
+	- 이러한 가설을 검증하기 위해 연구팀은 다양한 형태의 인코더 구조를 실험했습니다.
+
+
+
+### 4.3  Uncertainty-minimal Query Selection
 
 
 
